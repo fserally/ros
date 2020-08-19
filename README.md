@@ -1,5 +1,4 @@
-package name: udm_urdf
-
 File name: urdf/main.urdf
 
-Launch the file with the command: roslaunch udm_urdf visualize_urdf.launch model:='$(find udm_urdf)/urdf/main.urdf'
+Launch rviz with roslaunch udm_hand_moveitconfig demo.launch
+Launch the launch file with command: roslaunch udm_hand_control move_hand.launch

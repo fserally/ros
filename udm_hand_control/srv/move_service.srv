@@ -1,0 +1,7 @@
+std_msgs/Float32 joint0
+std_msgs/Float32 joint1
+std_msgs/Float32 joint2
+std_msgs/String group
+---
+bool res
+string message

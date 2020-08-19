@@ -1,0 +1,36 @@
+controller_list:
+  - name: fake_index_controller
+    joints:
+      - index_phalanx_base_joint
+      - index_phalanx_2_joint
+      - index_phalanx_3_joint
+  - name: fake_second_finger_controller
+    joints:
+      - second_finger_phalanx_base_joint
+      - second_finger_phalanx_2_joint
+      - second_finger_phalanx_3_joint
+  - name: fake_third_finger_controller
+    joints:
+      - third_finger_base_joint
+      - third_finger_2_joint
+      - third_finger_3_joint
+  - name: fake_forth_finger_controller
+    joints:
+      - forth_finger_base_joint
+      - forth_finger_2_joint
+      - forth_finger_3_joint
+  - name: fake_thumb_controller
+    joints:
+      - thumb_finger_base_joint
+      - thumb_finger_2_joint
+initial:  # Define initial robot poses.
+  - group: index
+    pose: index
+  - group: second_finger
+    pose: second_finger
+  - group: third_finger
+    pose: third_finger
+  - group: forth_finger
+    pose: forth_finger
+  - group: thumb
+    pose: thumb

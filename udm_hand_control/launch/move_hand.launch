@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="udm_hand_control" name="move_group_server" type="move_group_python_interface.py" output="screen"/>
+	<node pkg="udm_hand_control" type="move_group_client.py" name="move_service_client_index" args="0.5 0.2 0.3 'index'" output="screen"/>
+	<node pkg="udm_hand_control" type="move_group_client.py" name="move_service_client_second_finger" args="0.5 0.2 0.3 'second_finger'" output="screen"/>
+	<node pkg="udm_hand_control" type="move_group_client.py" name="move_service_client_third_finger" args="0.5 0.2 0.3 'third_finger'" output="screen"/>
+	<node pkg="udm_hand_control" type="move_group_client.py" name="move_service_client_forth_finger" args="0.5 0.2 0.3 'forth_finger'" output="screen"/>
+	<node pkg="udm_hand_control" type="move_group_client.py" name="move_service_client_thumb" args="0.2 1.0 0.0 'thumb'" output="screen"/>
+</launch>
+
