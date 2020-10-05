@@ -1,0 +1,85 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  leaf_link_1_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+    min_position: 0
+  leaf_link_2_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  leaf_link_3_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  leaf_link_4_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  link_1_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  link_2_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  link_3_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  link_4_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  long_link_1_joint:
+    has_velocity_limits: true
+    max_velocity: 0.5
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  long_link_2_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  long_link_3_joint:
+    has_velocity_limits: true
+    max_velocity: 0.5
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  long_link_4_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  root_link_1_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  root_link_2_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  root_link_3_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4
+  root_link_4_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: true
+    max_acceleration: 0.4

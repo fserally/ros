@@ -1,0 +1,13 @@
+controller_list:
+  - name: fake_leg1_controller
+    joints:
+      - root_link_1_joint
+      - long_link_1_joint
+      - link_1_joint
+      - leaf_link_1_joint
+  - name: fake_ee1_controller
+    joints:
+      - leaf_link_1_joint
+initial:  # Define initial robot poses.
+  - group: leg1
+    pose: leg1

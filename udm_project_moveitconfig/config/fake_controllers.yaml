@@ -1,0 +1,46 @@
+controller_list:
+  - name: fake_leg1_controller
+    joints:
+      - root_link_1_joint
+      - long_link_1_joint
+      - link_1_joint
+      - leaf_link_1_joint
+  - name: fake_leg2_controller
+    joints:
+      - root_link_2_joint
+      - long_link_2_joint
+      - link_2_joint
+      - leaf_link_2_joint
+  - name: fake_leg3_controller
+    joints:
+      - root_link_3_joint
+      - long_link_3_joint
+      - link_3_joint
+      - leaf_link_3_joint
+  - name: fake_leg4_controller
+    joints:
+      - root_link_4_joint
+      - long_link_4_joint
+      - link_4_joint
+      - leaf_link_4_joint
+  - name: fake_ee1_controller
+    joints:
+      - leaf_link_1_joint
+  - name: fake_ee2_controller
+    joints:
+      - leaf_link_2_joint
+  - name: fake_ee3_controller
+    joints:
+      - leaf_link_3_joint
+  - name: fake_ee4_controller
+    joints:
+      - leaf_link_4_joint
+initial:  # Define initial robot poses.
+  - group: leg1
+    pose: leg1
+  - group: leg2
+    pose: leg2
+  - group: leg3
+    pose: leg3
+  - group: leg4
+    pose: leg4

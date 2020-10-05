@@ -1,0 +1,11 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 1 0 0 0 0 1 map base_link 50" />
+	<arg name="model" default="$(find udm_spider)/urdf/mesh_part1.urdf" />
+
+
+	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+        <node pkg="joint_state_publisher_gui" name="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+	<node pkg="robot_state_publisher" name="robot_state_publisher" type="state_publisher"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/rviz/urdf.rviz" required="true" />
+</launch>
+

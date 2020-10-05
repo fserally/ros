@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<robot name="RobotArm">
+
+	<material name="blue">
+		<color rgba="0 0 1 1"/>
+	</material>
+	<material name="red">
+		<color rgba="1 0 0 1"/>
+	</material>
+	<material name="green">
+		<color rgba="0 1 0 1"/>
+	</material>
+	<material name="turquoise">
+		<color rgba="0 1 0.8 1"/>
+	</material>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<box size="0.9 0.9 0.2"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.1"/>
+			<material name="white"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.9 1 0.2"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.1"/>
+			<material name="white"/>
+		</collision>
+	</link>
+
+	<joint name="joint_base_mr" type="fixed">
+		<parent link="base_link"/>
+		<child link="cylinder_link_mr"/>
+		<origin xyz="0.35 -0.3 0.0"/>
+	</joint>
+
+	<link name="cylinder_link_mr">
+		<visual>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</collision>
+	</link>
+
+	<joint name="joint_shoulder_mr" type="revolute">
+		<parent link="cylinder_link_mr"/>
+		<child link="link_shoulder_mr"/>
+		<origin xyz="0.0 0.0 -0.080"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_shoulder_mr">
+		<visual>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</collision>
+	</link>
+
+	<joint name="joint_elbow_mr" type="revolute">
+		<parent link="link_shoulder_mr"/>
+		<child link="link_elbow_mr"/>
+		<origin xyz="0.0 0.030 -0.02"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_elbow_mr">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</collision>
+	</link>
+
+	<joint name="joint_wrist_mr" type="revolute">
+		<parent link="link_elbow_mr"/>
+		<child link="link_wrist_mr"/>
+		<origin xyz="0.0 -0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_wrist_mr">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</collision>
+	</link>
+
+	<joint name="joint_end_mr" type="revolute">
+		<parent link="link_wrist_mr"/>
+		<child link="link_end_mr"/>
+		<origin xyz="0.0 0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_end_mr">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="red"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+		</collision>
+	</link>
+
+
+	<joint name="joint_base_fr" type="fixed">
+		<parent link="base_link"/>
+		<child link="cylinder_link_fr"/>
+		<origin xyz="0.35 0.3 0.0"/>
+	</joint>
+
+	<link name="cylinder_link_fr">
+		<visual>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</collision>
+	</link>
+
+	<joint name="joint_shoulder_fr" type="revolute">
+		<parent link="cylinder_link_fr"/>
+		<child link="link_shoulder_fr"/>
+		<origin xyz="0.0 0.0 -0.080"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_shoulder_fr">
+		<visual>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</collision>
+	</link>
+
+	<joint name="joint_elbow_fr" type="revolute">
+		<parent link="link_shoulder_fr"/>
+		<child link="link_elbow_fr"/>
+		<origin xyz="0.0 0.030 -0.02"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_elbow_fr">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</collision>
+	</link>
+
+	<joint name="joint_wrist_fr" type="revolute">
+		<parent link="link_elbow_fr"/>
+		<child link="link_wrist_fr"/>
+		<origin xyz="0.0 -0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_wrist_fr">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</collision>
+	</link>
+
+	<joint name="joint_end_fr" type="revolute">
+		<parent link="link_wrist_fr"/>
+		<child link="link_end_fr"/>
+		<origin xyz="0.0 0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_end_fr">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="red"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+		</collision>
+	</link>
+
+	<joint name="joint_base_ml" type="fixed">
+		<parent link="base_link"/>
+		<child link="cylinder_link_ml"/>
+		<origin xyz="-0.35 -0.3 0.0"/>
+	</joint>
+
+	<link name="cylinder_link_ml">
+		<visual>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</collision>
+	</link>
+
+	<joint name="joint_shoulder_ml" type="revolute">
+		<parent link="cylinder_link_ml"/>
+		<child link="link_shoulder_ml"/>
+		<origin xyz="0.0 0.0 -0.080"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_shoulder_ml">
+		<visual>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</collision>
+	</link>
+
+	<joint name="joint_elbow_ml" type="revolute">
+		<parent link="link_shoulder_ml"/>
+		<child link="link_elbow_ml"/>
+		<origin xyz="0.0 0.030 -0.02"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_elbow_ml">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</collision>
+	</link>
+
+	<joint name="joint_wrist_ml" type="revolute">
+		<parent link="link_elbow_ml"/>
+		<child link="link_wrist_ml"/>
+		<origin xyz="0.0 -0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_wrist_ml">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</collision>
+	</link>
+
+	<joint name="joint_end_ml" type="revolute">
+		<parent link="link_wrist_ml"/>
+		<child link="link_end_ml"/>
+		<origin xyz="0.0 0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_end_ml">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="red"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+		</collision>
+	</link>
+
+
+
+
+	<joint name="joint_base_fl" type="fixed">
+		<parent link="base_link"/>
+		<child link="cylinder_link_fl"/>
+		<origin xyz="-0.35 0.3 0.0"/>
+	</joint>
+
+	<link name="cylinder_link_fl">
+		<visual>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.05" radius="0.08"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.025"/>
+			<material name="blue"/>
+		</collision>
+	</link>
+
+	<joint name="joint_shoulder_fl" type="revolute">
+		<parent link="cylinder_link_fl"/>
+		<child link="link_shoulder_fl"/>
+		<origin xyz="0.0 0.0 -0.080"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_shoulder_fl">
+		<visual>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.02 0.03 0.06"/>
+			</geometry>
+			<material name="white"/>
+		</collision>
+	</link>
+
+	<joint name="joint_elbow_fl" type="revolute">
+		<parent link="link_shoulder_fl"/>
+		<child link="link_elbow_fl"/>
+		<origin xyz="0.0 0.030 -0.02"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_elbow_fl">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="turquoise"/>
+		</collision>
+	</link>
+
+	<joint name="joint_wrist_fl" type="revolute">
+		<parent link="link_elbow_fl"/>
+		<child link="link_wrist_fl"/>
+		<origin xyz="0.0 -0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_wrist_fl">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="green"/>
+		</collision>
+	</link>
+
+	<joint name="joint_end_fl" type="revolute">
+		<parent link="link_wrist_fl"/>
+		<child link="link_end_fl"/>
+		<origin xyz="0.0 0.030 -0.18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" lower="-3.14" upper="3.14" velocity="5"/>
+	</joint>
+
+	<link name="link_end_fl">
+		<visual>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+			<material name="red"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.20"/>
+			</geometry>
+			<origin xyz="0.0 0.0 -0.08"/>
+		</collision>
+	</link>
+
+
+
+</robot>

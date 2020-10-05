@@ -1,0 +1,22 @@
+<launch>
+	<node name="leg1_indirect_controller" pkg="udm_project_control" type="indirect_kin_service.py">
+		<param name="groupName" value="leg1"/>
+	</node>
+	<node name="leg2_indirect_controller" pkg="udm_project_control" type="indirect_kin_service.py">
+		<param name="groupName" value="leg2"/>
+	</node>
+	<node name="leg3_indirect_controller" pkg="udm_project_control" type="indirect_kin_service.py">
+		<param name="groupName" value="leg3"/>
+	</node>
+	<node name="leg4_indirect_controller" pkg="udm_project_control" type="indirect_kin_service.py">
+		<param name="groupName" value="leg4"/>
+	</node>
+
+	<!--<node pkg="udm_project_control" type="direct_client.py" name="move_service_client_leg1" args="0 -0.45 1 'leg1'" output="screen"/>-->
+	<node pkg="udm_project_control" type="indirect_client.py" name="move_service_client" args="0.4 0.4 -0.2" output="screen">
+		<param name="steps" value="10"/>
+	</node>
+	
+
+</launch>
+

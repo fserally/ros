@@ -1,5 +1,5 @@
 <launch>
-	<arg name="model" default="$(find udm_urdf)/urdf/cylinder.urdf" />
+	<arg name="model" default="$(find udm_urdf)/urdf/mesh.urdf" />
 
 
 	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
